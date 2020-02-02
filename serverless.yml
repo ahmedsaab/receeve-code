@@ -1,0 +1,63 @@
+org: ahmedsaab
+app: receeve
+service: mailgun-lambdas
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+  - serverless-offline-scheduler
+
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+  serverless-offline:
+    port: 4000
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: 'dev'
+  region: 'eu-central-1'
+  environment:
+    MONGO_DB_URI: ${env:MONGO_DB_URI}
+    SNS_TOPIC_ARN:
+      Ref: MailgunTopic
+  deploymentBucket:
+    name: server-less-deployments
+  versionFunctions: false
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - SNS:Publish
+      Resource:
+        Ref: MailgunTopic
+
+
+functions:
+  publish-event:
+    handler: src/functions/publish-event.default
+    name: ${self:service}-publish-event-${self:provider.stage}
+    memorySize: 128
+    events:
+      - http:
+          path: publish-event
+          method: POST
+          cors: true
+  store-event:
+    handler: src/functions/store-event.default
+    name: ${self:service}-store-events-${self:provider.stage}
+    memorySize: 128
+    events:
+      - http:
+          path: store-event
+          method: POST
+          cors: true
+
+resources:
+  Resources:
+    MailgunTopic:
+      Type: AWS::SNS::Topic
+      Properties:
+        TopicName: 'MailgunTopic'
