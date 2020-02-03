@@ -3,10 +3,12 @@
   "name": "receeve-code",
   "description": "lambda functions for receeve",
   "version": "1.0.0",
+  "author": "Ahmed Saleh <ahmed.saab.dev@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "deploy": ". ./set_local_secrets.sh && sls deploy -v",
+    "deploy": "rm -rf .build && . ./set_local_secrets.sh && sls deploy -v",
     "lint": "eslint .",
-    "start": ". ./set_local_secrets.sh && sls offline start --useSeparateProcesses --dontPrintOutput"
+    "start": "rm -rf .build && . ./set_local_secrets.sh && sls offline start --useSeparateProcesses --dontPrintOutput"
   },
   "devDependencies": {
     "aws-sdk": "2.223.1",
@@ -22,19 +24,21 @@
     "serverless-webpack": "^5.3.1",
     "webpack": "4.5.0"
   },
-  "author": "Ahmed Saleh <ahmed.saab.dev@gmail.com>",
-  "license": "MIT",
   "dependencies": {
+    "@hapi/joi": "^14.3.1",
     "@types/aws-lambda": "^8.10.31",
+    "@types/hapi__joi": "^16.0.9",
     "@types/http-errors": "^1.6.2",
     "@types/joi": "^14.3.3",
     "@types/jsonwebtoken": "^8.3.3",
     "@types/mongodb": "^3.2.3",
+    "@types/node": "^13.7.0",
     "@types/request": "^2.48.2",
     "dotenv": "^8.0.0",
     "http-errors": "^1.7.3",
-    "joi": "^14.3.1",
+    "inversify": "^5.0.1",
     "mongodb": "^3.3.0",
+    "reflect-metadata": "^0.1.13",
     "typescript": "^3.5.3"
   }
 }

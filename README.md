@@ -1,9 +1,9 @@
-# Generic index based Signed Post Url Storage Solution
+# Receeve code
 
 ## Requirements
 
-* Node.js (version 8 is best at the moment)
-* npm which comes with Node.js
+* nodejs (version 10)
+* npm which comes with nodejs
 * yarn
 
 ## Introduction

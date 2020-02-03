@@ -5,7 +5,6 @@ service: mailgun-lambdas
 plugins:
   - serverless-plugin-typescript
   - serverless-offline
-  - serverless-offline-scheduler
 
 custom:
   webpack:
@@ -36,22 +35,13 @@ provider:
 
 
 functions:
-  publish-event:
-    handler: src/functions/publish-event.default
-    name: ${self:service}-publish-event-${self:provider.stage}
+  handle-event:
+    handler: src/functions/handle-event.default
+    name: ${self:service}-handle-event-${self:provider.stage}
     memorySize: 128
     events:
       - http:
-          path: publish-event
-          method: POST
-          cors: true
-  store-event:
-    handler: src/functions/store-event.default
-    name: ${self:service}-store-events-${self:provider.stage}
-    memorySize: 128
-    events:
-      - http:
-          path: store-event
+          path: handle-event
           method: POST
           cors: true
 
