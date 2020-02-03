@@ -9,7 +9,7 @@
     "noImplicitAny": false,
     "sourceMap": true,
     "lib": ["es6", "dom"],
-    "types": ["reflect-metadata", "node"],
+    "types": ["reflect-metadata", "node", "mocha"],
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true

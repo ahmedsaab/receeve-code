@@ -1,5 +1,5 @@
 import { Db, MongoClient } from "mongodb";
-import {inject, injectable, optional} from "inversify";
+import { inject, injectable, optional } from "inversify";
 
 import { DbEventDto } from "../dto/db-event-dto";
 import { MailgunEventDto } from "../dto/mailgun-event-dto";

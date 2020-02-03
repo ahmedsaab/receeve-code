@@ -13,6 +13,7 @@ export default async (lambdaEvent): Promise<ILambdaHttpResponse> => {
     return generateSuccessResponse()
   } catch (error) {
     Logger.error("Failed to process request", error);
+    console.error(error)
 
     return generateErrorResponse(error);
   }

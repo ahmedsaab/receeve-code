@@ -9,6 +9,10 @@ export default class ConsoleLoggingService implements ILoggingService {
   }
 
   error(message: string, error?: Error): void {
-    console.info(JSON.stringify({ message, error }))
+    console.info(JSON.stringify({
+      message,
+      error: error.message,
+      stack: error.stack
+    }))
   }
 }

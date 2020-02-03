@@ -8,7 +8,9 @@
   "scripts": {
     "deploy": "rm -rf .build && . ./set_local_secrets.sh && sls deploy -v",
     "lint": "eslint .",
-    "start": "rm -rf .build && . ./set_local_secrets.sh && sls offline start --useSeparateProcesses --dontPrintOutput"
+    "start": "rm -rf .build && . ./set_local_secrets.sh && sls offline start --useSeparateProcesses --dontPrintOutput",
+    "test": "mocha -r ts-node/register --recursive ./test/**/*.mocha.ts",
+    "package": "sls package"
   },
   "devDependencies": {
     "aws-sdk": "2.223.1",
@@ -31,14 +33,18 @@
     "@types/http-errors": "^1.6.2",
     "@types/joi": "^14.3.3",
     "@types/jsonwebtoken": "^8.3.3",
+    "@types/mocha": "^7.0.1",
     "@types/mongodb": "^3.2.3",
     "@types/node": "^13.7.0",
     "@types/request": "^2.48.2",
+    "@types/sinon": "^7.5.1",
     "dotenv": "^8.0.0",
     "http-errors": "^1.7.3",
     "inversify": "^5.0.1",
+    "mocha": "^7.0.1",
     "mongodb": "^3.3.0",
     "reflect-metadata": "^0.1.13",
+    "sinon": "^8.1.1",
     "typescript": "^3.5.3"
   }
 }

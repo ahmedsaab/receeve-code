@@ -3,4 +3,5 @@ export const TYPES = {
   Notification: Symbol("Notification"),
   Logger: Symbol("Logger"),
   Config: Symbol("Config"),
+  SNS: Symbol('SNS'),
 };
