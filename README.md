@@ -47,7 +47,7 @@ $ yarn test
 
 #### Linter
 
-Starting the linter tasks:
+Starting the linter:
 
 ```bash
 $ yarn lint
@@ -64,7 +64,7 @@ $ yarn start
 
 #### Deployment
 
-Run the following the fire the deployment:
+Run the following to deploy to AWS:
 
 ```bash
 $ yarn deploy
